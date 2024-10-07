@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitio Web Lapiz</title>
+    <link rel="stylesheet" href="css/proyecto0.2.css">
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav>
+        <a href="#presentacion">Presentación</a>
+        <a href="#galeria">Galería</a>
+        <a href="#historia">Historia</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- Sección de Presentación -->
+    <div id="presentacion" class="container">
+        <h1>Bienvenidos</h1>
+        <h2>Nuestra Presentación</h2>
+        <iframe 
+    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+    title="Video sobre Lápiz" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+</iframe>
+
+    </div>
+
+    <!-- Sección de Galería -->
+    <div id="galeria" class="container">
+        <h1>Galería de Fotos</h1>
+    </div>
+        
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="foto1.jpg" alt="Foto 1">
+                <div class="caption">
+                    <h3>Título de la Foto 1</h3>
+                    <p>Descripción breve de la foto 1.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="foto2.jpg" alt="Foto 2">
+                <div class="caption">
+                    <h3>Título de la Foto 2</h3>
+                    <p>Descripción breve de la foto 2.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="foto3.jpg" alt="Foto 3">
+                <div class="caption">
+                    <h3>Título de la Foto 3</h3>
+                    <p>Descripción breve de la foto 3.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Historia -->
+    <div id="historia" class="container">
+        <h1>Nuestra Historia</h1>
+        <div class="section">
+            <h2>Misión</h2>
+            <p>Ser un equipo comprometido con brindar servicios de calidad, enfocándonos en superar las expectativas de nuestros clientes y garantizar su satisfacción en cada proyecto que emprendemos.</p>
+        </div>
+        <div class="section">
+            <h2>Visión</h2>
+            <p>Convertirnos en líderes en nuestro campo, reconocidos por la excelencia, la innovación y el impacto positivo que generamos en nuestros clientes y en la comunidad global.</p>
+        </div>
+        <div class="section">
+            <h2>Breve Historia</h2>
+            <p>Desde nuestros inicios en [año], hemos crecido y evolucionado, siempre guiados por el deseo de ofrecer las mejores soluciones.</p>
+        </div>
+        <div class="slider">
+            <div class="slides">
+                <img src="imagen1.jpg" alt="Imagen 1">
+            </div>
+            <div class="slides">
+                <img src="imagen2.jpg" alt="Imagen 2">
+            </div>
+            <div class="slides">
+                <img src="imagen3.jpg" alt="Imagen 3">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </div>
+
+    <!-- Sección de Contacto -->
+    <div id="contacto" class="container">
+        <h1>Contacto</h1>
+        <form action="mailto:tu-email@dominio.com" method="post" enctype="text/plain">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+
+        <h2>Ubicación</h2>
+        <div id="map"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slides");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        function initMap() {
+            var location = { lat: -34.603722, lng: -58.381592 }; // Buenos Aires
+            var map = new google.maps.Map(document.getElementById('map'), { zoom: 14, center: location });
+            var marker = new google.maps.Marker({ position: location, map: map });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap"></script>
+    <audio id="musica1" autoplay controls loop>
+            <source src="audio/si-tu-novio-te-deja-sola-ft-bad-bunny-official-video.mp3" type="audio/mpeg">
+            Tu navegador no soporta la reproducción de audio.
+        </audio>
+</body>
+</html>
